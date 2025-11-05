@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda persoane</title>
+</head>
+
+<body>
+  <h2>Adaugă o persoană</h2>
+
+  <form>
+    <input id="inputName" type="text" placeholder="Nume">
+    <br /><br />
+    <input id="inputAge" type="number" placeholder="Vârstă">
+    <br /><br />
+    <input value="Adaugă" onclick="sendData()" type="button">
+    <br /><br />
+  </form>
+
+  <h3>Lista persoanelor:</h3>
+  <div id="tableData"></div>
+
+  <hr />
+
+  <h3>Caută persoană după ID</h3>
+  <input id="inputId" type="number" placeholder="Introdu ID-ul">
+  <input type="button" value="Caută" onclick="getPersonById()">
+
+  <div id="result"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

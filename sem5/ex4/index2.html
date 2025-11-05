@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Eveniment custom simplu</title>
+</head>
+<body>
+  <h3>Treci cu mouse-ul peste imagine:</h3>
+  <img id="pisica" src="pisicute.jpg" alt="Pisică drăguță">
+
+  <script>
+    const img = document.getElementById('pisica');
+
+    img.addEventListener('mouseover', function() {
+      console.log('Ai trecut cu mouse-ul peste imagine!');
+
+      const evenimentCustom = new CustomEvent('pisicaVazuta', {
+        detail: { mesaj: 'Pisicutele au fost privite' }
+      });
+
+      img.dispatchEvent(evenimentCustom);
+    });
+
+    img.addEventListener('pisicaVazuta', function(event) {
+      console.log('Eveniment custom declanșat:');
+      console.log(event.detail.mesaj);
+    });
+  </script>
+</body>
+</html>

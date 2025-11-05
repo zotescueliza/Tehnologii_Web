@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda telefonică</title>
+  <script>
+    window.onload = () => {
+      const form = document.getElementById("formular");
+      const tabel = document.getElementById("tabel-body");
+
+      form.onsubmit = (event) => {
+        event.preventDefault(); 
+        const nume = document.getElementById("nume").value;
+        const telefon = document.getElementById("telefon").value;
+
+        if (nume === "" || telefon === "") {
+          alert("Te rog completează ambele câmpuri!");
+          return;
+        }
+        const rand = document.createElement("tr");
+        const celulaNume = document.createElement("td");
+        const celulaTelefon = document.createElement("td");
+
+        celulaNume.textContent = nume;
+        celulaTelefon.textContent = telefon;
+
+        rand.appendChild(celulaNume);
+        rand.appendChild(celulaTelefon);
+        tabel.appendChild(rand);
+
+        form.reset();
+      };
+    };
+  </script>
+</head>
+<body>
+  <h2>Agenda telefonică</h2>
+
+  <form id="formular">
+    <label>Nume: </label>
+    <input type="text" id="nume">
+    <br><br>
+    <label>Telefon: </label>
+    <input type="text" id="telefon">
+    <br><br>
+    <button type="submit">Adaugă</button>
+  </form>
+
+  <h3>Contacte:</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nume</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
+    <tbody id="tabel-body">
+     
+    </tbody>
+  </table>
+</body>
+</html>
