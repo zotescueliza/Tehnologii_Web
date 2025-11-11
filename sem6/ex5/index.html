@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h3>Contact Form</h3>
+
+  <div class="container">
+    <form id="contactForm">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="">-- Select a country --</option>
+        <option value="romania">Romania</option>
+        <option value="hungary">Hungary</option>
+        <option value="bulgaria">Bulgaria</option>
+        <option value="germany">Germany</option>
+      </select>
+
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:150px"></textarea>
+
+      <input type="submit" value="Submit">
+
+      <p id="message" class="message"></p>
+    </form>
+  </div>
+
+  <script>
+    
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      const fname = document.getElementById("fname").value.trim();
+      const lname = document.getElementById("lname").value.trim();
+      const country = document.getElementById("country").value;
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message");
+
+      if (!fname || !lname || !country || !subject) {
+        message.textContent = "Te rog completează toate câmpurile!";
+        message.style.color = "red";
+      } else {
+        message.textContent = "Formular trimis cu succes!";
+        message.style.color = "green";
+        this.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+table {
+  border-collapse: collapse;
+  width: 300px;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: violet;
+}
+
+tbody tr:first-child {
+  background-color: blue;
+  color: white;
+}
+
+
+tbody tr:last-child {
+  background-color: green;
+  color: white;
+}
+
+
+thead {
+  font-weight: bold;
+}
